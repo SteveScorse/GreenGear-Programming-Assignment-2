@@ -11,10 +11,27 @@
         <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="800" Source="/Desktop - 2(3).png"/>
         <Label Content="Welcome to the GreenGear Rentals Admin Portal, Please select your desired function from the buttons below." HorizontalAlignment="Left" Margin="113,95,0,0" VerticalAlignment="Top" Width="587"/>
         <Border BorderBrush="LightGray" BorderThickness="1" Height="1" Margin="38,121,38,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnLoanCreate" Content="Create Loan" HorizontalAlignment="Left" Margin="44,152,0,0" VerticalAlignment="Top" Height="246" Width="160" />
-        <Button x:Name="btnManageLoans" Content="Manage Loans" HorizontalAlignment="Left" Margin="228,152,0,0" VerticalAlignment="Top" Height="246" Width="160" />
-        <Button x:Name="btnOverdueTools" Content="See Overdue Loans" HorizontalAlignment="Left" Margin="412,152,0,0" VerticalAlignment="Top" Height="246" Width="160" />
-        <Button x:Name="btnAddTools" Content="Add New Tool" HorizontalAlignment="Left" Margin="596,152,0,0" VerticalAlignment="Top" Height="246" Width="160" />
+        <Button x:Name="btnManageLoans" Content="Manage Loans" HorizontalAlignment="Left" Margin="137,153,0,0" VerticalAlignment="Top" Height="246" Width="160" Background="#FFFAF9F6" FontSize="16" FontWeight="Bold" Click="btnManageLoans_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnOverdueTools" Content="See Overdue Loans" HorizontalAlignment="Left" Margin="321,153,0,0" VerticalAlignment="Top" Height="246" Width="160" Background="#FFFAF9F6" FontWeight="Bold" FontSize="16" Click="btnOverdueTools_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnAddTools" Content="Add New Tool" HorizontalAlignment="Left" Margin="505,153,0,0" VerticalAlignment="Top" Height="246" Width="160" Background="#FFFAF9F6" FontWeight="Bold" FontSize="16" Click="btnAddTools_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
 
     </Grid>

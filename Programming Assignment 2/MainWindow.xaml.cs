@@ -25,6 +25,24 @@ namespace Programming_Assignment_2
             InitializeComponent();
         }
 
-       
+        private void btnLoanCreate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnManageLoans_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOverdueTools_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddTools_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

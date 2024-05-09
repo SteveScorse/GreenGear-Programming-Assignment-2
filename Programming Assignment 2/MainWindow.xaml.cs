@@ -25,24 +25,53 @@ namespace Programming_Assignment_2
             InitializeComponent();
         }
 
-        private void btnLoanCreate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnManageLoans_Click(object sender, RoutedEventArgs e)
         {
+            LoanManager LoanManagerWindow = new LoanManager();
+            //Hides Current Form (register)
+            this.Hide();
+            //open login form
+            LoanManagerWindow.ShowDialog();
+            this.Show();
 
         }
 
         private void btnOverdueTools_Click(object sender, RoutedEventArgs e)
         {
+            OverdueLoans OverdueLoansWindow = new OverdueLoans();
+            //Hides Current Form (register)
+            this.Hide();
+            //open login form
+            OverdueLoansWindow.ShowDialog();
+            this.Show();
 
         }
 
         private void btnAddTools_Click(object sender, RoutedEventArgs e)
         {
+            AddNewTool AddNewToolWindow = new AddNewTool();
+            //Hides Current Form (register)
+            this.Hide();
+            //open login form
+            AddNewToolWindow.ShowDialog();
+            this.Show();
 
+        }
+
+        private void btnManageCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            ManageCustomers ManageCustomersWindow = new ManageCustomers();
+            //Hides Current Form (register)
+            this.Hide();
+            //open login form
+            ManageCustomersWindow.ShowDialog();
+            this.Show();
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

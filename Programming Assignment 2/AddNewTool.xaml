@@ -9,9 +9,36 @@
     <Grid Background="#f5f5f5">
         <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="800" Source="/Desktop - 2(3).png"/>
         <Label Content="Add new Tools to Loan from the Interface Below" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Width="266"/>
+        <!-- Exit Button -->
+        <Button x:Name="btnClose" Content="Exit" Margin="750,10,10,0" VerticalAlignment="Top" Height="20" Background="#FFA22525" Foreground="White" BorderBrush="White" Click="btnClose_Click"/>
 
+        <!-- List -->
+        <ListView x:Name="listTools" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,126,289,49" SelectionChanged="lstProduct_SelectionChanged" Foreground="Black" BorderBrush="#FFDEDEDE" FontWeight="Normal">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
+                    <GridViewColumn Header="Tool Name" DisplayMemberBinding="{Binding ToolName}" Width="100"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="60"/>
+                    <GridViewColumn Header="Is Available?" DisplayMemberBinding="{Binding IsAvailable}" Width="100"/>
 
-        <Button x:Name="btnClose" Content="Exit" HorizontalAlignment="Left" Margin="750,10,0,0" VerticalAlignment="Top" Width="40" Height="20" Background="#FFA22525" Foreground="White" BorderBrush="White" Click="btnClose_Click"/>
-
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="txtToolName" Margin="583,158,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <TextBox x:Name="txtToolPrice" Margin="583,217,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <TextBox x:Name="txtIsAvailable" Margin="583,278,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <Label Content="Tool Name" HorizontalAlignment="Left" Margin="583,132,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Tool Price" HorizontalAlignment="Left" Margin="583,192,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Is Available?" HorizontalAlignment="Left" Margin="583,251,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnAddTool" Content="Add Tool" Margin="599,325,78,0" VerticalAlignment="Top" Height="36" Foreground="White" FontWeight="Bold" FontStyle="Italic" FontSize="14" BorderBrush="#FFC5C5C5" Click="btnAddTool_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF45A247" Offset="1"/>
+                    <GradientStop Color="#FF283C86" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDeleteRow" Content="Delete" Margin="21,359,289,0" Background="#FFAB0C0C" Foreground="White" FontWeight="Bold" FontSize="14" Height="26" VerticalAlignment="Top" Click="btnDeleteRow_Click"/>
     </Grid>
 </Window>

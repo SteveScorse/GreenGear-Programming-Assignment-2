@@ -19,14 +19,43 @@ namespace Programming_Assignment_2
     /// </summary>
     public partial class AddNewTool : Window
     {
+        //create list to store objects
+        private List<Tools> tools = new List<Tools>();
+        //used for object ID
+        private int nextID = 0;
+        private void RefreshTools()
+        {
+            //Remove Data
+            listTools.ItemsSource = null;
+            //Add all data to list (tasks)
+            listTools.ItemsSource = tools;
+        }
+
         public AddNewTool()
         {
             InitializeComponent();
+            RefreshTools();
+
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void lstProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnAddTool_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteRow_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

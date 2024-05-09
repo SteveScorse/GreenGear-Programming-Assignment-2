@@ -27,7 +27,7 @@ namespace Programming_Assignment_2
         {
             //Remove Data
             listTools.ItemsSource = null;
-            //Add all data to list (tasks)
+            //Add all data to list (listTools)
             listTools.ItemsSource = tools;
         }
 
@@ -50,7 +50,20 @@ namespace Programming_Assignment_2
 
         private void btnAddTool_Click(object sender, RoutedEventArgs e)
         {
+            string newToolName = txtToolName.Text;
+            float newToolPrice = float.Parse(txtToolPrice.Text);
+            bool newIsAvailable = bool.Parse(txtIsAvailable.Name);
 
+            if ((newToolName) == null && newToolPrice < 0)
+            {
+                var tool = new Tools(nextID++, newToolName, newToolPrice, newIsAvailable);
+                tools.Add(tool);
+                RefreshTools();
+
+                txtToolName.Clear();
+                txtToolPrice.Clear();
+                
+            }
         }
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)

@@ -25,6 +25,8 @@ namespace Programming_Assignment_2
 
 
     public partial class AddNewTool : Window
+
+
     {
         //create list to store objects
         private List<Tools> tools = new List<Tools>();
@@ -36,8 +38,24 @@ namespace Programming_Assignment_2
             get { return tools; }
         }
 
+        //Trust the process
+        public event EventHandler ToolAdded;
 
-        private void RefreshTools()
+        private void OnToolAdded()
+        {
+            ToolAdded?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnAddTool_Click(object sender, RoutedEventArgs e)
+        {
+            // Your existing code to add a new tool...
+
+            // Raise the ToolAdded event to notify subscribers (e.g., LoanManager)
+            OnToolAdded();
+        }
+    }
+
+    private void RefreshTools()
         {
             //Remove Data
             listTools.ItemsSource = null;
@@ -91,6 +109,10 @@ namespace Programming_Assignment_2
             var tool = new Tools(nextID++, newToolName, newToolPrice, newIsAvailable);
             tools.Add(tool);
 
+            ComboBoxItem newItem = new ComboBoxItem();
+            newItem.Content = tool; // Set the content of the ComboBoxItem to the tool object
+            comboBoxTools.Items.Add(newItem); // Add ComboBoxItem to the ComboBox
+
             //Refresh the list to update the UI
             RefreshTools();
 
@@ -98,6 +120,7 @@ namespace Programming_Assignment_2
             txtToolName.Clear();
             txtToolPrice.Clear();
             txtIsAvailable.IsChecked = false;
+
 
             //Success message
             MessageBox.Show("Tool added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

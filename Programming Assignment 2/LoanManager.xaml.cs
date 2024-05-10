@@ -32,6 +32,8 @@ namespace Programming_Assignment_2
             comboBoxTools.Items.Clear();
             comboBoxTools.ItemsSource = toolsList;
 
+            
+
 
         }
 

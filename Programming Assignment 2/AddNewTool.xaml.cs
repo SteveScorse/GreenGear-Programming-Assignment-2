@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,39 @@ namespace Programming_Assignment_2
     /// <summary>
     /// Interaction logic for AddNewTool.xaml
     /// </summary>
+    /// 
+
+    public class MyViewModel : INotifyPropertyChanged
+    {
+        private bool _isFeatureEnabled;
+
+        public bool IsFeatureEnabled
+        {
+            get { return _isFeatureEnabled; }
+            set
+            {
+                _isFeatureEnabled = value;
+                OnPropertyChanged(nameof(IsFeatureEnabled));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
+
     public partial class AddNewTool : Window
     {
         //create list to store objects
         private List<Tools> tools = new List<Tools>();
         //used for object ID
         private int nextID = 0;
+        
+
         private void RefreshTools()
         {
             //Remove Data
@@ -35,6 +63,7 @@ namespace Programming_Assignment_2
         {
             InitializeComponent();
             RefreshTools();
+            DataContext = new MyViewModel();
 
         }
 
@@ -50,20 +79,24 @@ namespace Programming_Assignment_2
 
         private void btnAddTool_Click(object sender, RoutedEventArgs e)
         {
+            //Assigns data from window inputs, to variables
             string newToolName = txtToolName.Text;
             float newToolPrice = float.Parse(txtToolPrice.Text);
-            bool newIsAvailable = bool.Parse(txtIsAvailable.Name);
+            bool newIsAvailable = txtIsAvailable.IsChecked ?? false;
 
-            if ((newToolName) == null && newToolPrice < 0)
-            {
+                //Creates an Object, then add them to the list
                 var tool = new Tools(nextID++, newToolName, newToolPrice, newIsAvailable);
                 tools.Add(tool);
+                
+                //Refreshes the list to update
                 RefreshTools();
-
+                
+                //QoL, clears text boxes
                 txtToolName.Clear();
                 txtToolPrice.Clear();
-                
-            }
+                txtIsAvailable.IsChecked = false;
+
+
         }
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)

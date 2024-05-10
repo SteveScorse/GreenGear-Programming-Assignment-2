@@ -20,27 +20,8 @@ namespace Programming_Assignment_2
     /// </summary>
     /// 
 
-    public class MyViewModel : INotifyPropertyChanged
-    {
-        private bool _isFeatureEnabled;
+    //checkbox fuckery
 
-        public bool IsFeatureEnabled
-        {
-            get { return _isFeatureEnabled; }
-            set
-            {
-                _isFeatureEnabled = value;
-                OnPropertyChanged(nameof(IsFeatureEnabled));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
 
 
     public partial class AddNewTool : Window
@@ -49,7 +30,12 @@ namespace Programming_Assignment_2
         private List<Tools> tools = new List<Tools>();
         //used for object ID
         private int nextID = 0;
-        
+
+        public List<Tools> ToolsList
+        {
+            get { return tools; }
+        }
+
 
         private void RefreshTools()
         {
@@ -63,7 +49,10 @@ namespace Programming_Assignment_2
         {
             InitializeComponent();
             RefreshTools();
-            DataContext = new MyViewModel();
+            tools.Add(new Tools(0, "Hammer", 15.99f, true));
+            tools.Add(new Tools(1, "Hedge Trimmer", 39.99f, true));
+            tools.Add(new Tools(2, "Trowel", 6.99f, true));
+            tools.Add(new Tools(3, "Wheel Barrow", 32.89f, true));
 
         }
 
@@ -79,29 +68,51 @@ namespace Programming_Assignment_2
 
         private void btnAddTool_Click(object sender, RoutedEventArgs e)
         {
-            //Assigns data from window inputs, to variables
+            //Variable to store inputs from the textboxes
             string newToolName = txtToolName.Text;
-            float newToolPrice = float.Parse(txtToolPrice.Text);
+            //Validation loop - checks if empty o r
+            if (string.IsNullOrWhiteSpace(newToolName))
+            {
+                MessageBox.Show("Please enter a tool name.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            float newToolPrice;
+            if (!float.TryParse(txtToolPrice.Text, out newToolPrice) || newToolPrice <= 0)
+            {
+                MessageBox.Show("Please enter a valid tool price (> 0).", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Get boolean value from checkbox
             bool newIsAvailable = txtIsAvailable.IsChecked ?? false;
 
-                //Creates an Object, then add them to the list
-                var tool = new Tools(nextID++, newToolName, newToolPrice, newIsAvailable);
-                tools.Add(tool);
-                
-                //Refreshes the list to update
-                RefreshTools();
-                
-                //QoL, clears text boxes
-                txtToolName.Clear();
-                txtToolPrice.Clear();
-                txtIsAvailable.IsChecked = false;
+            //Create a new Tools object and add it to the list
+            var tool = new Tools(nextID++, newToolName, newToolPrice, newIsAvailable);
+            tools.Add(tool);
 
+            //Refresh the list to update the UI
+            RefreshTools();
 
+            //Clear input fields after adding the tool
+            txtToolName.Clear();
+            txtToolPrice.Clear();
+            txtIsAvailable.IsChecked = false;
+
+            //Success message
+            MessageBox.Show("Tool added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)
         {
-
+            //Remove selected entry
+            if (listTools.SelectedIndex != -1)
+            {
+                tools.RemoveAt(listTools.SelectedIndex);
+                RefreshTools();
+                //Success message
+                MessageBox.Show("Tool removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

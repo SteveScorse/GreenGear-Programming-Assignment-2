@@ -23,7 +23,6 @@ namespace Programming_Assignment_2
             LoanDate = loanDate;
             DueDate = dueDate;
             IsReturned = isReturned;
-
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming_Assignment_2
 {
-    internal class Tools
+    public class Tools
     {
         public int ID { get; set; }
         public string ToolName { get; set; }

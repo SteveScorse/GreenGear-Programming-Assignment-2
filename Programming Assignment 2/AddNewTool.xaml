@@ -10,10 +10,10 @@
         <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="800" Source="/Desktop - 2(3).png"/>
         <Label Content="Add new Tools to Loan from the Interface Below" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Width="266"/>
         <!-- Exit Button -->
-        <Button x:Name="btnClose" Content="Exit" Margin="750,10,10,0" VerticalAlignment="Top" Height="20" Background="#FFA22525" Foreground="White" BorderBrush="White" Click="btnClose_Click"/>
+        <Button x:Name="btnClose" Content="Exit" Margin="750,10,0,0" Background="#FFA22525" Foreground="White" BorderBrush="White" Click="btnClose_Click" HorizontalAlignment="Left" Width="40" Height="20" VerticalAlignment="Top"/>
 
         <!-- List -->
-        <ListView x:Name="listTools" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,126,289,49" SelectionChanged="lstProduct_SelectionChanged" Foreground="Black" BorderBrush="#FFDEDEDE" FontWeight="Normal">
+        <ListView x:Name="listTools" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,126,289,49" Foreground="Black" BorderBrush="#FFDEDEDE" FontWeight="Normal">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
@@ -43,5 +43,6 @@
                 <ScaleTransform ScaleX="2" ScaleY="2" />
             </CheckBox.LayoutTransform>
         </CheckBox>
+        <Label Content="£" HorizontalAlignment="Left" Margin="565,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Window>

@@ -8,12 +8,12 @@ namespace Programming_Assignment_2
     public partial class AddNewTool : Window
     {
 
-        private ToolsDataService toolsDataService;
 
         // List to store tools
         private List<Tools> tools = new List<Tools>();
         private int nextID = 0;
 
+        //Public List
         public List<Tools> ToolsList
         {
             get { return tools; }

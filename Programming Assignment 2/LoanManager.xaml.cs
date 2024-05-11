@@ -43,7 +43,7 @@ namespace Programming_Assignment_2
 
         private void btnAddTool_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)

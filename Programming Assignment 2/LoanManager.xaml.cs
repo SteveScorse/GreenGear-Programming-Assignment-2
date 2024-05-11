@@ -19,6 +19,7 @@ namespace Programming_Assignment_2
     /// </summary>
     public partial class LoanManager : Window
     {
+
         public LoanManager()
         {
             InitializeComponent();
@@ -31,9 +32,6 @@ namespace Programming_Assignment_2
             //Assigns Tools from the list to comboBox
             comboBoxTools.Items.Clear();
             comboBoxTools.ItemsSource = toolsList;
-
-            
-
 
         }
 

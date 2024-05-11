@@ -11,16 +11,16 @@ namespace Programming_Assignment_2
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string PhoneNo { get; set; }
         public string PaymentType { get; set; }
-        public int HowManyToolsOnLoan { get; set; }
 
-        public Customer(int iD, string firstName, string lastName, string paymentType, int howManyToolsOnLoan)
+        public Customer(int iD, string firstName, string lastName, string phoneNo, string paymentType)
         {
             ID = iD;
             FirstName = firstName;
             LastName = lastName;
+            PhoneNo = phoneNo;
             PaymentType = paymentType;
-            HowManyToolsOnLoan = howManyToolsOnLoan;
                 
         }
 

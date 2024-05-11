@@ -11,7 +11,7 @@ namespace Programming_Assignment_2
 
         // List to store tools
         private List<Tools> tools = new List<Tools>();
-        private int nextID = 0;
+        private int nextID = 4;
 
         //Public List
         public List<Tools> ToolsList

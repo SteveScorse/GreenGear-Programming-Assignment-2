@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming_Assignment_2
 {
-    internal class Customer
+    public class Customer
     {
         public int ID { get; set; }
         public string FirstName { get; set; }

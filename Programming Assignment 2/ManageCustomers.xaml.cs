@@ -26,7 +26,10 @@ namespace Programming_Assignment_2
         private int nextID = 4;
 
         //Public List
-
+        public List<Customer> CustomerList
+        {
+            get { return customers; }
+        }
 
 
         public ManageCustomers()

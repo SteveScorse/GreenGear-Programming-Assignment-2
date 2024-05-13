@@ -9,13 +9,13 @@ namespace Programming_Assignment_2
     public class Loan
     {
         public int Id { get; set; }
-        public Customer Customer { get; set; }
-        public Tools Tool { get; set; }
-        public DateTime LoanDate { get; set; }
-        public DateTime DueDate { get; set; }
-        public bool IsReturned { get; set; }
+        public string Customer { get; set; }
+        public string Tool { get; set; }
+        public string LoanDate { get; set; }
+        public string DueDate { get; set; }
+        public string IsReturned { get; set; }
 
-        public Loan(int iD, Customer customer, Tools tool, DateTime loanDate, DateTime dueDate, bool isReturned)
+        public Loan(int iD, string customer, string tool, string loanDate, string dueDate, string isReturned)
         {
             Id = iD;
             Customer = customer;

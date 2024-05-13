@@ -21,7 +21,7 @@ namespace Programming_Assignment_2
     {
 
         private List<Loan> loans = new List<Loan>();
-        private int nextID = 4;
+        private int nextID = 0;
 
         //Public List
         public List<Loan> LoanList
@@ -56,14 +56,14 @@ namespace Programming_Assignment_2
 
 
             //loans.Add(new Loan(0, "John", "Smith", "12/12/24", "24/12/24", False));
-            RefreshCustomers();
+            RefreshLoan();
 
         }
 
         
 
 
-        private void RefreshCustomers()
+        private void RefreshLoan()
         {
             listLoans.ItemsSource = null; // Clear the existing items
             listLoans.ItemsSource = loans; // Set the items source to the list of customers
@@ -71,6 +71,7 @@ namespace Programming_Assignment_2
 
         private void btnAddLoan_Click(object sender, RoutedEventArgs e)
         {
+            //Validation and Variable initialisation
             string newCustomers = comboBoxCustomers.Text;
             if (string.IsNullOrWhiteSpace(newCustomers))
             {
@@ -99,7 +100,7 @@ namespace Programming_Assignment_2
                 return;
             }
 
-            // Parse the loan date and due date strings into DateTime objects
+            // loan date and due date validation
             if (!DateTime.TryParse(newLoanDateStr, out DateTime newLoanDate))
             {
                 MessageBox.Show("Invalid loan date format. Please enter a valid date.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -119,18 +120,27 @@ namespace Programming_Assignment_2
                 return;
             }
 
-            //var customer = new Customer(nextID++, newFirstName, newLastName, newPhoneNo, newPaymentType);
-            //customers.Add(customer);
+            string newIsReturned = comboBoxReturned.Text;
+            if (string.IsNullOrWhiteSpace(newIsReturned))
+            {
+                MessageBox.Show("Please select if the Tool has been returned", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-           // RefreshCustomers(); // Update the UI
 
-            // Clear input fields
-          //  txtFirstName.Clear();
-          //  txtLastName.Clear();
-           // txtPhoneNo.Clear();
-          //  comboBoxPayment.SelectedIndex = -1;
+            var loan = new Loan(nextID++, newCustomers, newTools, newLoanDateStr, newDueDateStr, newIsReturned);
+            loans.Add(loan);
 
-            MessageBox.Show("Customer added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            RefreshLoan(); // Update the ListBox
+
+           
+            comboBoxCustomers.SelectedIndex = -1;
+            comboBoxTools.SelectedIndex = -1;
+            dateLoanDate.SelectedDate = null;
+            dateDueDate.SelectedDate = null;
+            comboBoxReturned.SelectedIndex = -1;
+
+            MessageBox.Show("Loan added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)
@@ -146,7 +156,13 @@ namespace Programming_Assignment_2
 
         private void btnUpdateLoan_Click(object sender, RoutedEventArgs e)
         {
+            if (listLoans.SelectedItem is Loan selectedProduct)
+            {
+                //selectedProduct.Name = txtProductName.Text;
+               // selectedProduct.Price = decimal.Parse(txtProductPrice.Text);
+               // selectedProduct.Stock = int.Parse(txtProductStock.Text);
 
+            }
         }
     }
 }

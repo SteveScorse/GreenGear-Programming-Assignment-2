@@ -15,12 +15,12 @@
         <ListView x:Name="listLoans" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="21,126,227,49"  Foreground="Black" BorderBrush="#FFDEDEDE" FontWeight="Normal">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
-                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding ToolName}" Width="100"/>
-                    <GridViewColumn Header="Tool" DisplayMemberBinding="{Binding Price}" Width="100"/>
-                    <GridViewColumn Header="Loan Date" DisplayMemberBinding="{Binding IsAvailable}" Width="70"/>
-                    <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding IsAvailable}" Width="80"/>
-                    <GridViewColumn Header="Returned" DisplayMemberBinding="{Binding IsAvailable}" Width="85"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding Customer}" Width="100"/>
+                    <GridViewColumn Header="Tool" DisplayMemberBinding="{Binding Tool}" Width="100"/>
+                    <GridViewColumn Header="Loan Date" DisplayMemberBinding="{Binding LoanDate}" Width="70"/>
+                    <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate}" Width="80"/>
+                    <GridViewColumn Header="Returned" DisplayMemberBinding="{Binding IsReturned}" Width="85"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -42,7 +42,9 @@
         <DatePicker x:Name="dateLoanDate" HorizontalAlignment="Right" Margin="0,222,51,0" VerticalAlignment="Top" Width="120"/>
         <DatePicker x:Name="dateDueDate" HorizontalAlignment="Right" Margin="0,270,51,0" VerticalAlignment="Top" Width="120"/>
 
-        <ComboBox x:Name="comboBoxReturned" DisplayMemberPath="LastName" HorizontalAlignment="Right" Margin="0,323,50,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="comboBoxReturned" SelectedIndex="0" HorizontalAlignment="Right" Margin="0,323,50,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Not Returned" />
+            <ComboBoxItem Content="Returned" />
         </ComboBox>
         <Label Content="Customer:" HorizontalAlignment="Right" Margin="0,106,93,0" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
         <Label Content="Tool:" HorizontalAlignment="Right" Margin="0,152,128,0" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>

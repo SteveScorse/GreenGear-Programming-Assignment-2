@@ -121,6 +121,51 @@ namespace Programming_Assignment_2
             }
         }
 
+        private void btnUpdateCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            if(listCustomers.SelectedItem is Customer selectedCustomer)
+            {
+                // Additional fields from other files
+                string updatedFirstName = txtFirstName.Text;
+                string updatedLastName = txtLastName.Text;
+                string updatedPhoneNo = txtPhoneNo.Text;
+                string updatedPaymentType = comboBoxPayment.Text;
 
+                // Validation and update loan object based on input fields
+                if (!string.IsNullOrWhiteSpace(updatedFirstName))
+                {
+                    selectedCustomer.FirstName = updatedFirstName;
+                }
+
+                if (!string.IsNullOrWhiteSpace(updatedLastName))
+                {
+                    selectedCustomer.LastName = updatedLastName;
+                }
+
+                if (!string.IsNullOrWhiteSpace(updatedPhoneNo) && IsValidPhoneNumber(updatedPhoneNo))
+                {
+                    selectedCustomer.PhoneNo = updatedPhoneNo;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid phone number.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (!string.IsNullOrWhiteSpace(updatedPaymentType))
+                {
+                    selectedCustomer.PaymentType = updatedPaymentType;
+                }
+
+                // Refresh the ListBox to reflect the updated loan details
+                RefreshCustomers();
+
+                MessageBox.Show("Loan updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please select a loan to update.", "Update Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

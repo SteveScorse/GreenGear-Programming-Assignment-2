@@ -25,19 +25,22 @@ namespace Programming_Assignment_2
 
 
 
-            // Add initial tools (for demonstration purposes)
+            //Add initial tools (for demonstration purposes)
             tools.Add(new Tools(0, "Hammer", 15.99f, true));
             tools.Add(new Tools(1, "Hedge Trimmer", 39.99f, true));
             tools.Add(new Tools(2, "Trowel", 6.99f, true));
             tools.Add(new Tools(3, "Wheel Barrow", 32.89f, true));
 
-            RefreshTools(); // Update the UI to display the initial list of tools
+            //Update the UI 
+            RefreshTools(); 
         }
 
         private void RefreshTools()
         {
-            listTools.ItemsSource = null; // Clear the existing items
-            listTools.ItemsSource = tools; // Set the items source to the list of tools
+            //Clear the existing items
+            listTools.ItemsSource = null;
+            //Set the items source to the list of tools
+            listTools.ItemsSource = tools;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Programming_Assignment_2"
         mc:Ignorable="d"
-        Title="ManageCustomers" Height="450" Width="800">
+        Title="ManageCustomers" Height="480" Width="800">
     <Grid Background="#f5f5f5" Margin="0,-7,0,-6">
         <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="800" Source="/Desktop - 2(3).png"/>
         <Label Content="Manage Customers from the Interface Below" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Width="246"/>
@@ -21,14 +21,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="txtFirstName" Margin="583,146,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
-        <TextBox x:Name="txtLastName" Margin="583,204,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <TextBox x:Name="txtFirstName" Margin="582,138,61,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Foreground="#FF909090"/>
+        <TextBox x:Name="txtLastName" Margin="582,196,61,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Foreground="#FF909090"/>
         <!-- <TextBox x:Name="txtIsAvailable" Margin="583,278,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/> -->
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="583,124,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="583,180,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Phone No." HorizontalAlignment="Left" Margin="583,238,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Payment Type" HorizontalAlignment="Left" Margin="583,296,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnAddCustomer" Content="Add Customer" Margin="599,366,78,0" VerticalAlignment="Top" Height="36" Foreground="White" FontWeight="Bold" FontStyle="Italic" FontSize="14" BorderBrush="#FFC5C5C5" Click="btnAddCustomer_Click">
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="582,116,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="582,172,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Phone No." HorizontalAlignment="Left" Margin="582,230,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Payment Type" HorizontalAlignment="Left" Margin="582,288,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnAddCustomer" Content="Add Customer" Margin="599,356,78,0" VerticalAlignment="Top" Height="36" Foreground="White" FontWeight="Bold" FontStyle="Italic" FontSize="14" BorderBrush="#FFC5C5C5" Click="btnAddCustomer_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF45A247" Offset="1"/>
@@ -36,17 +36,25 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeleteRow" Content="Delete" Margin="21,372,289,0" Background="#FFAB0C0C" Foreground="White" FontWeight="Bold" FontSize="14" Height="26" VerticalAlignment="Top" Click="btnDeleteRow_Click"/>
+        <Button x:Name="btnDeleteRow" Content="Delete" Margin="21,419,289,0" Background="#FFAB0C0C" Foreground="White" FontWeight="Bold" FontSize="14" Height="26" VerticalAlignment="Top" Click="btnDeleteRow_Click"/>
 
         <Button x:Name="btnClose" Content="Exit" HorizontalAlignment="Left" Margin="750,10,0,0" VerticalAlignment="Top" Width="40" Height="20" Background="#FFA22525" Foreground="White" BorderBrush="White" Click="btnClose_Click"/>
-        <ComboBox x:Name="comboBoxPayment" Margin="583,325,60,0" Height="29" VerticalAlignment="Top"
+        <ComboBox x:Name="comboBoxPayment" Margin="582,316,61,0" Height="30" VerticalAlignment="Top"
                   SelectedIndex="0" >
             <ComboBoxItem Content="Debit Card" />
             <ComboBoxItem Content="Credit Card" />
             <ComboBoxItem Content="Cash" />
             <ComboBoxItem Content="Crypto" />
         </ComboBox>
-        <TextBox x:Name="txtPhoneNo" Margin="583,262,60,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <TextBox x:Name="txtPhoneNo" Margin="582,253,61,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Foreground="#FF909090"/>
+        <Button x:Name="btnUpdateCustomer" Content="Update Customer" Margin="599,409,78,0" VerticalAlignment="Top" Height="36" Foreground="White" FontWeight="Bold" FontStyle="Italic" FontSize="14" BorderBrush="#FFC5C5C5" Click="btnUpdateCustomer_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF45A247" Offset="1"/>
+                    <GradientStop Color="#FF283C86" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

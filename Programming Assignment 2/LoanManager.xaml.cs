@@ -58,6 +58,8 @@ namespace Programming_Assignment_2
             //loans.Add(new Loan(0, "John", "Smith", "12/12/24", "24/12/24", False));
             RefreshLoan();
 
+
+
         }
 
         
@@ -156,12 +158,53 @@ namespace Programming_Assignment_2
 
         private void btnUpdateLoan_Click(object sender, RoutedEventArgs e)
         {
-            if (listLoans.SelectedItem is Loan selectedProduct)
+            if (listLoans.SelectedItem is Loan selectedLoan)
             {
-                //selectedProduct.Name = txtProductName.Text;
-               // selectedProduct.Price = decimal.Parse(txtProductPrice.Text);
-               // selectedProduct.Stock = int.Parse(txtProductStock.Text);
+               
+                    //assign variables to input fields
+                    string updatedCustomer = comboBoxCustomers.Text;
+                    string updatedTool = comboBoxTools.Text;
+                    string updatedLoanDateStr = dateLoanDate.Text;
+                    string updatedDueDateStr = dateDueDate.Text;
+                    string updatedIsReturned = comboBoxReturned.Text;
 
+                    //Validation
+                    if (!string.IsNullOrWhiteSpace(updatedCustomer))
+                    {
+                        selectedLoan.Customer = updatedCustomer;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(updatedTool))
+                    {
+                        selectedLoan.Tool = updatedTool;
+                    }
+
+                    DateTime updatedLoanDate;
+                    if (!string.IsNullOrWhiteSpace(updatedLoanDateStr) && DateTime.TryParse(updatedLoanDateStr, out updatedLoanDate))
+                    {
+                        selectedLoan.LoanDate = updatedLoanDateStr;
+                    }
+
+                    DateTime updatedDueDate;
+                    if (!string.IsNullOrWhiteSpace(updatedDueDateStr) && DateTime.TryParse(updatedDueDateStr, out updatedDueDate))
+                    {
+                        selectedLoan.DueDate = updatedDueDateStr;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(updatedIsReturned))
+                    {
+                        selectedLoan.IsReturned = updatedIsReturned;
+                    }
+
+                    //Refresh the ListBox
+                    RefreshLoan();
+
+                    MessageBox.Show("Loan updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a loan to update.", "Update Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -147,7 +147,13 @@ namespace Programming_Assignment_2
 
         private void btnDeleteRow_Click(object sender, RoutedEventArgs e)
         {
-
+            if (listLoans.SelectedIndex != -1)
+            {
+                loans.RemoveAt(listLoans.SelectedIndex);
+                //Update the UI
+                RefreshLoan();
+                MessageBox.Show("Loan removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

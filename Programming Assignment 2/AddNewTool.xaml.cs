@@ -88,5 +88,39 @@ namespace Programming_Assignment_2
                 MessageBox.Show("Tool removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void btnUpdateTool_Click(object sender, RoutedEventArgs e)
+        {
+            if (listTools.SelectedItem is Tools selectedTool)
+            {
+                //Assinging inputs to variables
+                string updatedToolName = txtToolName.Text;
+                float updatedToolPrice;
+                bool? updatedIsAvailable = txtIsAvailable.IsChecked;
+
+                //Validation and update
+                if (!string.IsNullOrWhiteSpace(updatedToolName))
+                {
+                    selectedTool.ToolName = updatedToolName;
+                }
+
+                if (float.TryParse(txtToolPrice.Text, out updatedToolPrice) && updatedToolPrice > 0)
+                {
+                    selectedTool.Price = updatedToolPrice;
+                }
+
+
+                selectedTool.IsAvailable = txtIsAvailable.IsChecked ?? false;
+
+                //Refresh the List
+                RefreshTools();
+
+                MessageBox.Show("Tool updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please select a Tool to update.", "Update Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
